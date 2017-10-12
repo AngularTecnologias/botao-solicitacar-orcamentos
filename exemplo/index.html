@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo - Pra Construir</title>
+    <script src="https://praconstruir.com.br/button/praconstruir-btn.min.js" defer></script>
+    <link type="text/css" rel="stylesheet" href="https://praconstruir.com.br/button/praconstruir-btn.min.css">
+</head>
+<body class="body">
+
+<h3>Exemplo</h3>
+
+<p>Veja o código de exemplo para utilizar o botão do Pra Construir:</p>
+<pre>
+    document.addEventListener("DOMContentLoaded", function () {
+        let praconstruirBtn = new PraconstruirBtn('#praconstruirBtn');
+        let listOfProducts = [[111007,9531,10],[111006,9531,30]];
+        praconstruirBtn.addAllProducts(listOfProducts);
+    });
+</pre>
+
+<p>Veja que o botão foi instanciado após o carregamento do DOM, e foi utilizada
+    a função <em>addAllProducts</em> para inserir uma array contendo os produtos, unidades e quantidades.
+    Ao clicar no botão, esta lista de id's será formatada e será aberta uma janela do Pra Construir,
+    onde será carregada a lista de produtos pronta para solicitar orçamento.</p>
+
+<p>Para buscar as id's de produtos e unidades pra utilização em seu site, utilize o link
+    <a href="https://praconstruir.com.br/developer/painel/busca" target="_blank">https://praconstruir.com.br/developer/painel/busca</a></p>
+
+<input type="button" value="SALVAR LISTA" title="Salvar lista no Pra Construir"
+       id="praconstruirBtn" class="praconstruirBtn"
+/>
+
+<script>
+
+    /* É importante que o botão seja instanciado após o carregamento do DOM.
+    Caso esteja utilizando jQuery, basta inserir os itens (1), (2) e (3) dentro
+    do $(document).ready() [Leia mais em https://learn.jquery.com/using-jquery-core/document-ready/]
+   No exemplo abaixo, estamos supondo um caso genérico em que não se utilize jQuery,
+   portanto estamos executando o código no trigger do evento DOMContentLoaded.
+ */
+    document.addEventListener("DOMContentLoaded", function () {
+
+        // Confirme se o seletor praconstruirBtn esteja no atributo id do input
+        let praconstruirBtn = new PraconstruirBtn('#praconstruirBtn'); // (1)
+
+        /* Um produto é definido numa array de inteiros dessa forma:
+            [id do produto, id da unidade (m3, m2, un, etc), quantidade]
+           Para obter as ids dos produtos e unidades, utilize nossa busca:
+           https://praconstruir.com.br/developer/painel/busca
+        */
+        let listOfProducts = [[111007,9531,10],[111006,9531,30]]; // (2)
+
+        // Após definir todos os itens, passe para o método addAllProducts
+        praconstruirBtn.addAllProducts(listOfProducts); // (3)
+
+        /* Caso você queira adicionar item a item dentro de um loop,
+            pode utilizar este outro método:
+                praconstruirBtn.addProduct([id do produto, id da unidade, quantidade]);
+         */
+    });
+
+</script>
+
+</body>
+</html>
