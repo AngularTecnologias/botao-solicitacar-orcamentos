@@ -13,8 +13,10 @@
 <p>Veja o código de exemplo para utilizar o botão do Pra Construir:</p>
 <pre>
     document.addEventListener("DOMContentLoaded", function () {
-        let praconstruirBtn = new PraconstruirBtn('#praconstruirBtn');
-        let listOfProducts = [[111007,9531,10],[111006,9531,30]];
+        var praconstruirBtn = new PraconstruirBtn('#praconstruirBtn');
+        // Substituir o valor abaixo ('MEU-TOKEN') pelo token obtido junto ao PraConstruir
+        praconstruirBtn.setToken('MEU-TOKEN');
+        var listOfProducts = [[111007,9531,10],[111006,9531,30]];
         praconstruirBtn.addAllProducts(listOfProducts);
     });
 </pre>
@@ -42,14 +44,17 @@
     document.addEventListener("DOMContentLoaded", function () {
 
         // Confirme se o seletor praconstruirBtn esteja no atributo id do input
-        let praconstruirBtn = new PraconstruirBtn('#praconstruirBtn'); // (1)
+        var praconstruirBtn = new PraconstruirBtn('#praconstruirBtn'); // (1)
+
+        // Substituir o valor abaixo ('MEU-TOKEN') pelo token obtido junto ao PraConstruir
+        praconstruirBtn.setToken('MEU-TOKEN');
 
         /* Um produto é definido numa array de inteiros dessa forma:
             [id do produto, id da unidade (m3, m2, un, etc), quantidade]
            Para obter as ids dos produtos e unidades, utilize nossa busca:
            https://praconstruir.com.br/developer/painel/busca
         */
-        let listOfProducts = [[111007,9531,10],[111006,9531,30]]; // (2)
+        var listOfProducts = [[111007,9531,10],[111006,9531,30]]; // (2)
 
         // Após definir todos os itens, passe para o método addAllProducts
         praconstruirBtn.addAllProducts(listOfProducts); // (3)

@@ -30,11 +30,17 @@ Os passos para utilização são:
 
 - Inicialize o botão:
 ```javascript
-let praconstruirBtn = new PraconstruirBtn('#praconstruirBtn');
+var praconstruirBtn = new PraconstruirBtn('#praconstruirBtn');
 ```
+
+- Defina o seu token obtido junto ao PraConstruir:
+```javascript
+praconstruirBtn.setToken('MEU-TOKEN');
+```
+
 - Crie a lista com id's e quantidades com base na [busca que realizou no site Pra Construir](https://praconstruir.com.br/developer/painel/busca):
 ```javascript
-let listOfProducts = [[111007,9531,10],[111006,9531,30]];
+var listOfProducts = [[111007,9531,10],[111006,9531,30]];
 ```
 - Adicione a lista ao botão:
 ```javascript
